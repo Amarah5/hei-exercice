@@ -1,6 +1,6 @@
 import React from "react";
 import heiLogo from "../../assets/logo.png";
-import "../../css/Nav.css"; 
+import "../../styles.css";
 
 export const NavBar = () => {
   const navLinks = [
