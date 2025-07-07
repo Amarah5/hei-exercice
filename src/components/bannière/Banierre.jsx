@@ -48,32 +48,31 @@ export const Banierre = () => {
         style={{ backgroundImage: `url(${slides[currentSlideIndex].image})` }}
       ></div>
 
-      <div className="absolute inset-0 bg-black opacity-60"></div>
+      <div className="absolute inset-0 bg-black opacity-30"></div>
 
-      <div className="relative z-10 flex flex-col items-center p-6 max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-semibold mb-8 whitespace-nowrap text-[72px] text-[var(--color-primary-white)]">
+      <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
+        <h1 className="text-5xl md:text-6xl font-bold mb-24 whitespace-nowrap text-[72px] text-[var(--color-primary-white)]">
           Haute École d'Informatique
         </h1>
 
-        <p className="text-lg md:text-xl font-light mb-12 max-w-2xl text-[var(--color-primary-white)]">
+        <p className="text-lg md:text-xl font-semibold mb-24 max-w-2xl text-[var(--color-primary-white)]">
           {slides[currentSlideIndex].text}
         </p>
 
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-10 mb-24">
-          <button className="bg-white text-[var(--color-primary-blue)] hover:bg-gray-100 px-8 py-3 rounded-lg shadow-lg transition duration-300 ease-in-out font-semibold text-base uppercase">
+        <div className="w-full flex flex-col sm:flex-row space-y-10 sm:space-y-0 sm:space-x-20 mb-24">
+          <button className="bg-white text-[var(--color-primary-blue)] hover:bg-gray-100 px-8 py-3 shadow-lg transition duration-300 ease-in-out font-semibold text-base ">
             Inscrivez-vous ici
           </button>
-          <button className="bg-white text-[var(--color-primary-blue)] hover:bg-gray-100 px-8 py-3 rounded-lg shadow-lg transition duration-300 ease-in-out font-semibold text-base uppercase">
+          <button className="bg-[var(--color-primary-yellow)] text-[var(--color-primary-white)] hover:bg-gray-100 px-8 py-3  shadow-lg transition duration-300 ease-in-out font-semibold text-base ">
             Emploi du temps
           </button>
-          <button className="bg-[var(--color-primary-yellow)] hover:bg-yellow-600 text-[var(--color-primary-blue)] px-8 py-3 rounded-lg shadow-lg transition duration-300 ease-in-out font-semibold text-base uppercase">
+          <button className="bg-[var(--color-primary-blue)] hover:bg-yellow-600 text-[var(--color-primary-white)] px-4 py-5  shadow-lg transition duration-300 ease-in-out font-semibold text-base ">
             Programme pédagogique
           </button>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 w-full mb-4">
-          <div className="bg-white h-0.5 w-1/3 mx-auto mb-4"></div>
-          <p className="text-gray-200 text-xs sm:text-sm">
+          <p className="text-gray-200 font-medium text-xs sm:text-sm">
             Habilitation MESUPRES, suivant l'arrêté n°31309/2023
           </p>
         </div>
