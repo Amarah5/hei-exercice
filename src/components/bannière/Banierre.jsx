@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import slide1 from "../../assets/cloudHei/hei-banner-1.webp"; 
-import slide2 from "../../assets/cloudHei/hei-banner-2.webp"; 
-import slide3 from "../../assets/cloudHei/hei-banner-3.webp"; 
+import React, { useState, useEffect, useCallback } from "react";
+import slide1 from "../../assets/cloudHei/hei-banner-1.webp";
+import slide2 from "../../assets/cloudHei/hei-banner-2.webp";
+import slide3 from "../../assets/cloudHei/hei-banner-3.webp";
 import "../../styles.css";
 
 export const Banierre = () => {
@@ -16,30 +16,31 @@ export const Banierre = () => {
     },
     {
       image: slide3,
-      text: "Des entreprises partenaire et une équipe pédagogiques  qui travailles sans relâche pour la montée en compétence de nos étudiants.",
+      text: "Des entreprises partenaire et une équipe pédagogiques qui travaillent sans relâche pour la montée en compétence de nos étudiants.",
     },
   ];
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  const goToPreviousSlide = () => {
+  const goToPreviousSlide = useCallback(() => {
     setCurrentSlideIndex((prevIndex) =>
       prevIndex === 0 ? slides.length - 1 : prevIndex - 1
     );
-  };
+  }, [slides.length]);
 
-  const goToNextSlide = () => {
+  const goToNextSlide = useCallback(() => {
     setCurrentSlideIndex((prevIndex) =>
       prevIndex === slides.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [slides.length]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       goToNextSlide();
     }, 5000);
 
-    return () => clearInterval(interval); 
-  }, []);
+    return () => clearInterval(interval);
+  }, [goToNextSlide]);
 
   return (
     <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
@@ -48,46 +49,48 @@ export const Banierre = () => {
         style={{ backgroundImage: `url(${slides[currentSlideIndex].image})` }}
       ></div>
 
-      <div className="absolute inset-0 bg-black opacity-30"></div>
+      <div className="absolute inset-0 bg-black opacity-40"></div> 
 
-      <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold mb-24 whitespace-nowrap text-[72px] text-[var(--color-primary-white)]">
+      <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24"> 
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-garamond font-extrabold mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-[var(--color-primary-white)] leading-tight"> 
           Haute École d'Informatique
         </h1>
 
-        <p className="text-lg md:text-xl font-semibold mb-24 max-w-2xl text-[var(--color-primary-white)]">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-8 sm:mb-10 md:mb-12 max-w-3xl text-[var(--color-primary-white)] leading-relaxed"> 
           {slides[currentSlideIndex].text}
         </p>
 
-        <div className="w-full flex flex-col sm:flex-row space-y-10 sm:space-y-0 sm:space-x-20 mb-24">
-          <button className="bg-white text-[var(--color-primary-blue)] hover:bg-gray-100 px-8 py-3 shadow-lg transition duration-300 ease-in-out font-semibold text-base ">
+        <div className="w-full flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-6 lg:space-x-8 mb-16 sm:mb-20 md:mb-24 justify-center flex-wrap">
+          <button className="bg-white text-[var(--color-primary-blue)] hover:bg-[var(--color-primary-yellow)] px-6 sm:px-8 py-3 rounded-md shadow-lg transition duration-300 ease-in-out font-semibold text-sm sm:text-base hover:text-white transform hover:scale-105"> 
             Inscrivez-vous ici
           </button>
-          <button className="bg-[var(--color-primary-yellow)] text-[var(--color-primary-white)] hover:bg-gray-100 px-8 py-3  shadow-lg transition duration-300 ease-in-out font-semibold text-base ">
+          <button className="bg-[var(--color-primary-yellow)] text-[var(--color-primary-white)] hover:bg-yellow-500 px-6 sm:px-8 py-3 rounded-md shadow-lg transition duration-300 ease-in-out font-semibold text-sm sm:text-base transform hover:scale-105"> 
             Emploi du temps
           </button>
-          <button className="bg-[var(--color-primary-blue)] hover:bg-yellow-600 text-[var(--color-primary-white)] px-4 py-5  shadow-lg transition duration-300 ease-in-out font-semibold text-base ">
+          <button className="bg-[var(--color-primary-blue)] hover:bg-blue-900 text-[var(--color-primary-white)] px-6 sm:px-8 py-3 rounded-md shadow-lg transition duration-300 ease-in-out font-semibold text-sm sm:text-base transform hover:scale-105"> 
             Programme pédagogique
           </button>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 w-full mb-4">
+        <div className="absolute bottom-4 left-0 right-0 w-full px-4 sm:px-6"> 
           <p className="text-gray-200 font-medium text-xs sm:text-sm">
             Habilitation MESUPRES, suivant l'arrêté n°31309/2023
           </p>
         </div>
       </div>
 
-      <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 flex justify-between px-4 sm:px-6 z-20">
+      <div className="hidden md:flex absolute left-0 right-0 top-1/2 transform -translate-y-1/2 justify-between px-4 sm:px-6 z-20">
         <button
           onClick={goToPreviousSlide}
-          className="text-white text-4xl p-2 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300"
+          className="text-white text-3xl sm:text-4xl p-2 rounded-full hover:bg-white hover:bg-opacity-30 transition duration-300"
+          aria-label="Previous slide"
         >
           &#10094;
         </button>
         <button
           onClick={goToNextSlide}
-          className="text-white text-4xl p-2 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300"
+          className="text-white text-3xl sm:text-4xl p-2 rounded-full hover:bg-white hover:bg-opacity-30 transition duration-300"
+          aria-label="Next slide"
         >
           &#10095;
         </button>
@@ -103,6 +106,7 @@ export const Banierre = () => {
                 : "bg-gray-400 opacity-70"
             } cursor-pointer transition-colors duration-300`}
             onClick={() => setCurrentSlideIndex(index)}
+            aria-label={`Go to slide ${index + 1}`}
           ></span>
         ))}
       </div>
