@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+
+import "./styles.css";
+import { Home } from './pages/Home';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faHourglassStart,
+  faUserGraduate,
+  faCrosshairs
+} from '@fortawesome/free-solid-svg-icons';
+
+// This is the crucial line you need to add!
+// It registers the icons with Font Awesome's global library.
+library.add(faHourglassStart, faUserGraduate, faCrosshairs);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Home /> {/* Self-closing tag is good practice */}
     </div>
   );
 }
