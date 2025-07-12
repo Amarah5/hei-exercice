@@ -33,6 +33,7 @@ export const Banierre = () => {
       prevIndex === slides.length - 1 ? 0 : prevIndex + 1
     );
   }, [slides.length]);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
