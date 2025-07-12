@@ -8,6 +8,7 @@ import Concours from "../components/Concours/Concours";
 import { Domainesect } from "../components/domaine/Domainesect";
 import Langage from "../components/langage/Langage";
 import Partenaire from "../components/Partenaire/Partenaire";
+import Footer from "../components/Footer/Footer";
 
 
 export const Home = () => {
@@ -26,6 +27,7 @@ export const Home = () => {
           <Partenaire></Partenaire>
         </div>
       </main>
+      <Footer></Footer>
     </div>
   );
 };
