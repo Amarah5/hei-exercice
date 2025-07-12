@@ -9,14 +9,12 @@ import {
   faCrosshairs
 } from '@fortawesome/free-solid-svg-icons';
 
-// This is the crucial line you need to add!
-// It registers the icons with Font Awesome's global library.
 library.add(faHourglassStart, faUserGraduate, faCrosshairs);
 
 function App() {
   return (
     <div className="App">
-      <Home /> {/* Self-closing tag is good practice */}
+      <Home />
     </div>
   );
 }
